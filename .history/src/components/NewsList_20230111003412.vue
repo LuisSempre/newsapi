@@ -2,9 +2,9 @@
   <div class="newslist">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="(article, index) in articles" :key="index">
+        <li class="media" v-for="article in articles">
           <div class="media-left">
-            <a v-bind:href="article.url" target="_blank">
+            <a v-bind-href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage" />
             </a>
           </div>
@@ -42,8 +42,16 @@ export default {
         .get(
           "https://newsapi.org/v1/articles?source=" +
             source +
-            "&apiKey=ea5e9bbb5e1c4cda8066322c9b988648"
+            "&apiKey=9faca3b10c3f43a5b97be4ecfda79064"
         )
+        .then(function (response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
         .then((response) => {
           this.articles = response.data.articles;
         });

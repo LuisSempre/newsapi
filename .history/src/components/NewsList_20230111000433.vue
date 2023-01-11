@@ -2,9 +2,9 @@
   <div class="newslist">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="(article, index) in articles" :key="index">
+        <li class="media" v-for="article in everything">
           <div class="media-left">
-            <a v-bind:href="article.url" target="_blank">
+            <a v-bind-href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage" />
             </a>
           </div>
@@ -33,16 +33,16 @@ export default {
   props: ["source"],
   data() {
     return {
-      articles: [],
+      everything: [],
     };
   },
   methods: {
     updateSource: function (source) {
       axios
         .get(
-          "https://newsapi.org/v1/articles?source=" +
+          "https://newsapi.org/v2/everything?source=" +
             source +
-            "&apiKey=ea5e9bbb5e1c4cda8066322c9b988648"
+            "&apiKey=ac05108405a8459fbcf735c9086c5194"
         )
         .then((response) => {
           this.articles = response.data.articles;
@@ -61,9 +61,6 @@ export default {
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-}
 .media-object {
   width: 128px;
   padding: 10px;

@@ -2,22 +2,22 @@
   <div class="newslist">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="(article, index) in articles" :key="index">
+        <li class="media" v-for="everything in everything">
           <div class="media-left">
-            <a v-bind:href="article.url" target="_blank">
-              <img class="media-object" v-bind:src="article.urlToImage" />
+            <a v-bind-href="everything.url" target="_blank">
+              <img class="media-object" v-bind:src="everything.urlToImage" />
             </a>
           </div>
           <div class="media-body">
             <h4 class="media-heading">
-              <a v-bind:href="article.url" target="_blank">{{
-                article.title
+              <a v-bind:href="everything.url" target="_blank">{{
+                everything.title
               }}</a>
             </h4>
             <h5>
-              <i>by {{ article.author }}</i>
+              <i>by {{ everything.author }}</i>
             </h5>
-            <p>{{ article.description }}</p>
+            <p>{{ everything.description }}</p>
           </div>
         </li>
       </ul>
@@ -33,19 +33,19 @@ export default {
   props: ["source"],
   data() {
     return {
-      articles: [],
+      everything: [],
     };
   },
   methods: {
     updateSource: function (source) {
       axios
         .get(
-          "https://newsapi.org/v1/articles?source=" +
+          "https://newsapi.org/v2/everything?source=" +
             source +
-            "&apiKey=ea5e9bbb5e1c4cda8066322c9b988648"
+            "&apiKey=ac05108405a8459fbcf735c9086c5194"
         )
         .then((response) => {
-          this.articles = response.data.articles;
+          this.everything = response.data.everything;
         });
     },
   },
@@ -61,9 +61,6 @@ export default {
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-}
 .media-object {
   width: 128px;
   padding: 10px;
@@ -73,3 +70,11 @@ li {
   padding-top: 20px;
 }
 </style>
+
+
+      <!-- axios
+        .get(
+          "https://newsapi.org/v2/top-headlines/sources?country=brapiKey=" +
+            source +
+            "&apiKey=ac05108405a8459fbcf735c9086c5194"
+        ) -->

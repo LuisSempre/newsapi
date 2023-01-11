@@ -2,9 +2,9 @@
   <div class="newslist">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="(article, index) in articles" :key="index">
+        <li class="media" v-for="article in articles">
           <div class="media-left">
-            <a v-bind:href="article.url" target="_blank">
+            <a v-bind-href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage" />
             </a>
           </div>
@@ -38,11 +38,15 @@ export default {
   },
   methods: {
     updateSource: function (source) {
+      const API_KEY = "ac05108405a8459fbcf735c9086c5194";
+      axios.get(
+        `https://newsapi.org/v2/top-headlines/sources?country=brapiKey=${API_KEY}`
+      );
       axios
         .get(
-          "https://newsapi.org/v1/articles?source=" +
+          "https://newsapi.org/v2/top-headlines/sources?country=brapiKey=" +
             source +
-            "&apiKey=ea5e9bbb5e1c4cda8066322c9b988648"
+            "&apiKey=ac05108405a8459fbcf735c9086c5194"
         )
         .then((response) => {
           this.articles = response.data.articles;
@@ -61,9 +65,6 @@ export default {
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-}
 .media-object {
   width: 128px;
   padding: 10px;

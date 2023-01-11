@@ -4,7 +4,7 @@
       <ul class="media-list">
         <li class="media" v-for="(article, index) in articles" :key="index">
           <div class="media-left">
-            <a v-bind:href="article.url" target="_blank">
+            <a v-bind-href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage" />
             </a>
           </div>
