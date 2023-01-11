@@ -2,7 +2,7 @@
   <div class="newslist">
     <div class="container">
       <ul class="media-list">
-        <li class="media" v-for="article in articles">
+        <li class="media" v-for-key="article in articles">
           <div class="media-left">
             <a v-bind-href="article.url" target="_blank">
               <img class="media-object" v-bind:src="article.urlToImage" />
