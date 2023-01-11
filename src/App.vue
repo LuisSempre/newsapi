@@ -6,26 +6,26 @@
 </template>
 
 <script>
-import SourceSelection from './components/SourceSelection'
-import NewsList from './components/NewsList'
+import SourceSelection from "./components/SourceSelection.vue";
+import NewsList from "./components/NewsList.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
     SourceSelection,
-    NewsList
+    NewsList,
   },
-  data () {
+  data() {
     return {
-      source: ""
-    }
+      source: "",
+    };
   },
   methods: {
-    sourceChanged: function(source){
+    sourceChanged: function (source) {
       this.source = source;
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style>

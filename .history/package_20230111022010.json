@@ -1,7 +1,7 @@
 {
   "name": "news",
-  "author": "Luis Lucas",
-  "version": "1.0.0",
+  "author": {"Luis Lucas", },
+  "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

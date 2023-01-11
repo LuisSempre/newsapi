@@ -40,9 +40,7 @@ export default {
     updateSource: function (source) {
       axios
         .get(
-          "https://newsapi.org/v1/articles?source=" +
-            source +
-            "&apiKey=ea5e9bbb5e1c4cda8066322c9b988648"
+          `https://newsapi.org/v1/articles?source=${source}&apiKey=ea5e9bbb5e1c4cda8066322c9b988648`
         )
         .then((response) => {
           this.articles = response.data.articles;
